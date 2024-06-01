@@ -26,7 +26,7 @@
     <string>Назад</string>
    </property>
   </widget>
-  <widget class="QTableWidget" name="tableWidget">
+  <widget class="QTableView" name="tableView">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -53,95 +53,6 @@
    <property name="sortingEnabled">
     <bool>false</bool>
    </property>
-   <property name="rowCount">
-    <number>0</number>
-   </property>
-   <attribute name="horizontalHeaderCascadingSectionResizes">
-    <bool>true</bool>
-   </attribute>
-   <attribute name="horizontalHeaderMinimumSectionSize">
-    <number>25</number>
-   </attribute>
-   <attribute name="horizontalHeaderDefaultSectionSize">
-    <number>100</number>
-   </attribute>
-   <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-    <bool>false</bool>
-   </attribute>
-   <attribute name="horizontalHeaderStretchLastSection">
-    <bool>true</bool>
-   </attribute>
-   <attribute name="verticalHeaderCascadingSectionResizes">
-    <bool>false</bool>
-   </attribute>
-   <attribute name="verticalHeaderMinimumSectionSize">
-    <number>25</number>
-   </attribute>
-   <attribute name="verticalHeaderDefaultSectionSize">
-    <number>25</number>
-   </attribute>
-   <column>
-    <property name="text">
-     <string>№</string>
-    </property>
-    <property name="font">
-     <font>
-      <italic>true</italic>
-      <bold>true</bold>
-      <underline>true</underline>
-     </font>
-    </property>
-    <property name="background">
-     <color alpha="30">
-      <red>0</red>
-      <green>0</green>
-      <blue>0</blue>
-     </color>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Кампания</string>
-    </property>
-    <property name="font">
-     <font>
-      <italic>true</italic>
-      <bold>true</bold>
-      <underline>true</underline>
-     </font>
-    </property>
-    <property name="background">
-     <color alpha="30">
-      <red>0</red>
-      <green>0</green>
-      <blue>0</blue>
-     </color>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Информация</string>
-    </property>
-    <property name="font">
-     <font>
-      <italic>true</italic>
-      <bold>true</bold>
-      <underline>true</underline>
-      <strikeout>false</strikeout>
-     </font>
-    </property>
-    <property name="background">
-     <color alpha="30">
-      <red>0</red>
-      <green>0</green>
-      <blue>0</blue>
-     </color>
-    </property>
-    <property name="icon">
-     <iconset theme="contact-new">
-      <normaloff>.</normaloff>.</iconset>
-    </property>
-   </column>
   </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">

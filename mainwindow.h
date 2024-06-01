@@ -36,6 +36,8 @@ private slots: //слоты по нажатию кнопок или любого
 
 //    void on_pushButton_3_clicked();
 
+    void on_pushButton_3_clicked();
+
 private: //используем только в этом классе
     Ui::MainWindow *ui; //формы, для применения свойств
     QStackedWidget *stackedWidget;
@@ -47,6 +49,7 @@ private: //используем только в этом классе
     txtworker *txtWorker;
     Operator11 *operator11;
     buh18 *buH18;
+    UslugiNachalo *usluginachalo;
     void returnToMain(QWidget* nameWidget);
 
 

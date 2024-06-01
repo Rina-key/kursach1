@@ -12,3 +12,9 @@ Uslugi9::~Uslugi9()
 {
     delete ui;
 }
+
+void Uslugi9::on_pushButton_3_clicked()
+{
+    this->close();
+}
+

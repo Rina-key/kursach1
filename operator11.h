@@ -2,6 +2,7 @@
 #define OPERATOR11_H
 
 #include <QDialog>
+#include "zayavki12.h"
 
 namespace Ui {
 class Operator11;
@@ -20,8 +21,11 @@ signals:
 private slots:
     void on_pushButton_3_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::Operator11 *ui;
+    Zayavki12* zayavki12;
 };
 
 #endif // OPERATOR11_H

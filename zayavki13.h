@@ -15,6 +15,11 @@ public:
     explicit Zayavki13(QWidget *parent = nullptr);
     ~Zayavki13();
 
+    void tableMaker(QStringList array);
+
+private slots:
+    void on_pushButton_3_clicked();
+
 private:
     Ui::Zayavki13 *ui;
 };

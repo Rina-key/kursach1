@@ -17,21 +17,29 @@ MainWindow::MainWindow(QWidget *parent) //экземпляр класса (мн�
     stackedWidget = new QStackedWidget(this);// окна в окна
     returnToMain(ui->centralwidget);
     abonent=new Abonent();
-    connect(abonent, &Abonent:: abonentWindow, this, &MainWindow:: show); //(:: show - вызвали метод)
 
     formaregistracii=new formaRegistracii(); //HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
 
     admin=new Admin();
     operator11=new Operator11();
     buH18 = new buh18();
+    usluginachalo = new UslugiNachalo();
     connect(admin, &Admin:: adminWindow, this, &MainWindow:: show);//соединение сигнала и метода
 
 //    connect(admin,&Admin::closed, this, MainWindow::returnToMain(ui->centralwidget));
 //    connect(abonent,&Abonent::closed, this, MainWindow::returnToMain(ui->centralwidget));
-    connect(admin, &Admin::closed, this, [this]() { returnToMain(ui->centralwidget); }); //Лямбда функция - это без названия, для чего? УДОБНАЯ ФУНКЦИЯ!!! Данные в коробочке
-    connect(abonent, &Abonent::closed, this, [this]() { returnToMain(ui->centralwidget); });
-    connect(buH18, &buh18::closed, this, [this]() { returnToMain(ui->centralwidget); });
-    connect(operator11, &Operator11::closed, this, [this]() { returnToMain(ui->centralwidget); });
+    connect(admin, &Admin::closed, this, [this]() { returnToMain(ui->centralwidget);
+        ui->lineEdit->setText("");
+        ui->lineEdit_2->setText("");}); //Лямбда функция - это без названия, для чего? УДОБНАЯ ФУНКЦИЯ!!! Данные в коробочке
+    connect(abonent, &Abonent::closed, this, [this]() { returnToMain(ui->centralwidget);
+        ui->lineEdit->setText("");
+        ui->lineEdit_2->setText("");});
+    connect(buH18, &buh18::closed, this, [this]() { returnToMain(ui->centralwidget);
+        ui->lineEdit->setText("");
+        ui->lineEdit_2->setText("");});
+    connect(operator11, &Operator11::closed, this, [this]() { returnToMain(ui->centralwidget);
+        ui->lineEdit->setText("");
+        ui->lineEdit_2->setText("");});
 
 //    usluginachalo=new UslugiNachalo();
 }
@@ -42,83 +50,52 @@ MainWindow::~MainWindow() //диструктор
 }
 
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_pushButton_clicked() // ВХОД
 {
-    QStringList registr; // TODO: QSring
     QString login;
     QString password;
-    bool loginout = false;
     login = ui->lineEdit->text();// взяли со строчек в форме //метод //QString это класс и вызываем его метод
     password = ui->lineEdit_2->text();
 
     if(ui->radioButtonRab->isChecked()) {
-        this->setWindowTitle("Администратор");
-        //try { // TODO: ???
-           // rab = Database::getRabByLogin(login);
+        this->setWindowTitle("Работник");
 
-            //+ ...
-        //}
-        //catch(NotFound e){
-        //    QMessageBox::critical(nullptr,"Ошибка","Неправильный логин или пароль");
-        //}
-        //catch (Ctitical) {
-        //    QMessageBox::warning(...);
-        //    qApp->quit();
+        try {
+            auto strRole = txtWorker->getRoleByLoginAndPass(login, password);
 
-       // }
+            if (strRole =="Admin")
+                returnToMain(admin);
+            if (strRole =="Operator")
+                returnToMain(operator11);
+            if (strRole =="Buhgalter")
+                returnToMain(buH18);
 
-        // QTableWidget
-
-        // QTableView   QAbstractTableModel
-
-       // Rab rab = Database::getRabByLogin(login);
-
-        string filepath="C:\\kursach1\\rab.txt";
-        registr = txtWorker->reading(filepath);//содержит список из файла
-//        int col=5;
-        for (int i=0; i<registr.length(); i++){
-            QStringList array=txtWorker->splitWords(registr[i]);
-            if (array [2]==login){
-                if (array [3]==password){
-                    if (array[4] =="Admin") {
-                        returnToMain(admin);
-                        loginout = true;//если условия пройдены, то ошибки не будет
-                    }
-                    if (array[4] =="Operator"){
-                        returnToMain(operator11);
-                        loginout = true;//если условия пройдены, то ошибки не будет
-                    }
-                    if (array[4] =="Buhgalter") {
-                        returnToMain(buH18);
-                        loginout = true;//если условия пройдены, то ошибки не будет
-                    }
-                }
-            }
-        }
-        if (!loginout){
-            QMessageBox::critical(nullptr,"Ошибка","Неправильный логин или пароль");
+        } catch (const NotFound&) {
+            QMessageBox::critical(this,"Ошибка","Неправильный логин или пароль");
+        } catch (const Critical&) {
+            QMessageBox::warning(this, "Ошибка", "Обратитесь к админу.");
+            qApp->quit();
         }
     }
     else{
         if(ui->radioButtonAbonent->isChecked()) {
-            string filepath="C:\\kursach1\\zayavki.txt";
-            registr = txtWorker->reading(filepath);//содержит список из файла
-//            int col=9;
-            for (int i=0; i<registr.length(); i++){
-                QStringList array=txtWorker->splitWords(registr[i]);
-                if (array [6]==login){
-                    if (array [7]==password){
-                        returnToMain(abonent);
-                        loginout =true;
-                    }
-                }
-            }
-            if (!loginout){
-                QMessageBox::critical(nullptr,"Ошибка","Неправильный логин или пароль");
+            this->setWindowTitle("Клиент");
+
+            try {
+                QStringList array;
+                array = txtWorker->zayavkiForPass(login, password);
+                abonent -> currentAbonent = array;
+                returnToMain(abonent);
+
+            } catch (const NotFound&) {
+                QMessageBox::critical(this,"Ошибка","Неправильный логин или пароль");
+            } catch (const Critical&) {
+                QMessageBox::warning(this, "Ошибка", "Обратитесь к админу.");
+                qApp->quit();
             }
         }
-        else {
-            QMessageBox::critical(nullptr,"Ошибка","Не выбран пользователь");
+        else{
+            QMessageBox::critical(this,"Ошибка","Не выбран пользователь");
         }
     }
 }
@@ -140,3 +117,9 @@ void MainWindow::returnToMain(QWidget* nameWidget) //чтобы ставило �
     stackedWidget->setCurrentWidget(nameWidget);
     setCentralWidget(stackedWidget);
 }
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    usluginachalo -> show();
+}
+

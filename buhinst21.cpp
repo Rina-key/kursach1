@@ -12,3 +12,9 @@ BuhInst21::~BuhInst21()
 {
     delete ui;
 }
+
+void BuhInst21::on_pushButton_3_clicked()
+{
+    this->close();
+}
+

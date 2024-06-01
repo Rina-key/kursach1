@@ -6,142 +6,49 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>872</width>
+    <width>1079</width>
     <height>435</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QTableWidget" name="tableWidget">
+  <widget class="QTableView" name="tableView">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>80</y>
-     <width>851</width>
+     <width>1031</width>
      <height>241</height>
     </rect>
    </property>
    <property name="lineWidth">
     <number>7</number>
    </property>
-   <attribute name="horizontalHeaderCascadingSectionResizes">
-    <bool>true</bool>
-   </attribute>
-   <attribute name="horizontalHeaderDefaultSectionSize">
+   <attribute name="horizontalHeaderMinimumSectionSize">
     <number>180</number>
    </attribute>
-   <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+   <attribute name="horizontalHeaderHighlightSections">
     <bool>true</bool>
    </attribute>
    <attribute name="horizontalHeaderStretchLastSection">
     <bool>true</bool>
    </attribute>
+   <attribute name="verticalHeaderVisible">
+    <bool>true</bool>
+   </attribute>
    <attribute name="verticalHeaderCascadingSectionResizes">
-    <bool>false</bool>
+    <bool>true</bool>
    </attribute>
    <attribute name="verticalHeaderMinimumSectionSize">
     <number>50</number>
    </attribute>
-   <attribute name="verticalHeaderDefaultSectionSize">
-    <number>50</number>
+   <attribute name="verticalHeaderHighlightSections">
+    <bool>false</bool>
    </attribute>
-   <column>
-    <property name="text">
-     <string>Дата</string>
-    </property>
-    <property name="font">
-     <font>
-      <italic>true</italic>
-      <bold>true</bold>
-      <underline>true</underline>
-     </font>
-    </property>
-    <property name="background">
-     <color alpha="30">
-      <red>0</red>
-      <green>0</green>
-      <blue>0</blue>
-     </color>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Время</string>
-    </property>
-    <property name="font">
-     <font>
-      <italic>true</italic>
-      <bold>true</bold>
-      <underline>true</underline>
-     </font>
-    </property>
-    <property name="background">
-     <color alpha="30">
-      <red>0</red>
-      <green>0</green>
-      <blue>0</blue>
-     </color>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Населённый пункт</string>
-    </property>
-    <property name="font">
-     <font>
-      <italic>true</italic>
-      <bold>true</bold>
-      <underline>true</underline>
-      <strikeout>false</strikeout>
-     </font>
-    </property>
-    <property name="background">
-     <color alpha="30">
-      <red>0</red>
-      <green>0</green>
-      <blue>0</blue>
-     </color>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Продолжительность</string>
-    </property>
-    <property name="font">
-     <font>
-      <italic>true</italic>
-      <bold>true</bold>
-      <underline>true</underline>
-     </font>
-    </property>
-    <property name="background">
-     <color alpha="30">
-      <red>0</red>
-      <green>0</green>
-      <blue>0</blue>
-     </color>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Стоимость</string>
-    </property>
-    <property name="font">
-     <font>
-      <italic>true</italic>
-      <bold>true</bold>
-      <underline>true</underline>
-     </font>
-    </property>
-    <property name="background">
-     <color alpha="30">
-      <red>0</red>
-      <green>0</green>
-      <blue>0</blue>
-     </color>
-    </property>
-   </column>
+   <attribute name="verticalHeaderStretchLastSection">
+    <bool>false</bool>
+   </attribute>
   </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
@@ -172,7 +79,7 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>360</x>
+     <x>520</x>
      <y>40</y>
      <width>151</width>
      <height>20</height>

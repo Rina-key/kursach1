@@ -15,6 +15,9 @@ public:
     explicit BuhInst21(QWidget *parent = nullptr);
     ~BuhInst21();
 
+private slots:
+    void on_pushButton_3_clicked();
+
 private:
     Ui::BuhInst21 *ui;
 };

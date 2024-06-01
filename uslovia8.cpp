@@ -12,3 +12,9 @@ Uslovia8::~Uslovia8()
 {
     delete ui;
 }
+
+void Uslovia8::on_pushButton_3_clicked()
+{
+    this->close();
+}
+

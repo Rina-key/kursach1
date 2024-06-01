@@ -15,6 +15,9 @@ public:
     explicit Uslugi9(QWidget *parent = nullptr);
     ~Uslugi9();
 
+private slots:
+    void on_pushButton_3_clicked();
+
 private:
     Ui::Uslugi9 *ui;
 };

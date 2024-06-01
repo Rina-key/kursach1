@@ -2,6 +2,8 @@
 #define BUH18_H
 
 #include <QDialog>
+#include "buhz19.h"
+#include "buhinst21.h"
 
 namespace Ui {
 class buh18;
@@ -20,8 +22,14 @@ signals:
 private slots:
     void on_pushButton_3_clicked();
 
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
 private:
     Ui::buh18 *ui;
+    BuhZ19* buhz19;
+    BuhInst21* buhinst21;
 };
 
 #endif // BUH18_H

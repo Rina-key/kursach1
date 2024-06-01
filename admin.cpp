@@ -26,6 +26,7 @@ void Admin::on_pushButton_3_clicked()
 
 void Admin::on_pushButton_clicked()
 {
+    adminzayavki15 -> updateTable();
     adminzayavki15->show();
 }
 

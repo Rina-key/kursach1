@@ -1,4 +1,6 @@
-Vanya;23232323;2;1;Admin
-ыыы;23232323;1;1;Operator
-00 0 0;0;0;0;Operator
+Vanya;23232323;a;1;Admin
+ыыы;23232323;o;1;Operator
 b b b;b;b;1;Buhgalter
+  ;;;;
+23 2 2;2;d;1;Operator
+Никончук Арина Руслановна;891234567;Arina;04;Operator

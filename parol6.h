@@ -1,22 +1,30 @@
 #ifndef PAROL6_H
 #define PAROL6_H
 
+#include "txtworker.h"
 #include <QDialog>
 
 namespace Ui {
-class ParolRis6;
+class Parol6;
 }
 
-class ParolRis6 : public QDialog
+class Parol6 : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit ParolRis6(QWidget *parent = nullptr);
-    ~ParolRis6();
+    explicit Parol6(QWidget *parent = nullptr);
+    ~Parol6();
+    QStringList currentAbonent;
+
+private slots:
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_clicked();
 
 private:
-    Ui::ParolRis6 *ui;
+    Ui::Parol6 *ui;
+    txtworker *txtWorker;
 };
 
 #endif // PAROL6_H
